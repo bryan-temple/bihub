@@ -8,13 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'founder': ['Founder Grotesk', 'sans-serif'],
+        'familjen': ['Familjen Grotesk', 'sans-serif'],
+      },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      colors: {
+        'orange': '#D67530',
+        'green': '#3AB87D',
+        'navy': '#0F2B42',
+        'beige': '#EEC9B6',
+        'brown': '#7A5F29',
       },
     },
   },
   plugins: [],
 };
+
 export default config;

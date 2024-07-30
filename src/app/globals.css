@@ -2,32 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  body {
+    @apply font-familjen text-beige bg-navy;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-founder font-bold text-beige;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-orange text-navy hover:bg-orange/90 focus:ring-orange;
+  }
+
+  .btn-secondary {
+    @apply bg-green text-navy hover:bg-green/90 focus:ring-green;
+  }
+
+  .btn-outline {
+    @apply border-beige text-beige hover:bg-beige hover:text-navy focus:ring-beige;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-orange to-green;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-orange rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-orange/80;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  @apply outline-none ring-2 ring-orange ring-offset-2 ring-offset-navy;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }

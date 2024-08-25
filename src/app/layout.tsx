@@ -1,14 +1,13 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import dynamic from 'next/dynamic';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] })
+const ThreeDScene = dynamic(() => import('@/components/ThreeDScene'), { ssr: false });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Bihub Technology',
-  description: 'Accessible and inclusive web solutions',
+  description: 'Innovative and accessible web solutions',
 }
 
 export default function RootLayout({
@@ -18,12 +17,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+      <body className="bg-navy min-h-screen">
+        <div className="relative min-h-screen overflow-hidden">
+          <ThreeDScene />
+          <div className="absolute inset-0 z-10">
+            <div className="container mx-auto px-4 py-8 h-full flex flex-col">
+              <Header />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   )

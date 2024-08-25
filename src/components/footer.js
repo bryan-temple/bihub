@@ -1,12 +1,10 @@
-export default function Footer() {
+// import './globals.css';
+const Footer = () => {
   return (
-    <footer className="bg-primary text-white py-4">
-      <div className="container mx-auto px-4 text-center">
-        <p>&copy; 2024 Bihub Technology. All rights reserved.</p>
-      </div>
+    <footer className="py-6">
+      <p className="text-beige text-center">&copy; 2024 Bihub Technology. All rights reserved.</p>
     </footer>
-  )
-}
+  );
+};
 
-
-
+export default Footer;

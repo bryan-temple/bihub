@@ -20,7 +20,6 @@ const config: Config = {
         'green': '#3AB87D',
         'navy': '#0F2B42',
         'beige': '#EEC9B6',
-        'brown': '#7A5F29',
       },
     },
   },

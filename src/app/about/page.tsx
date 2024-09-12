@@ -1,8 +1,22 @@
-export default function About() {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-4">About Us</h1>
-      <p>Information about Bihub Technology...</p>
-    </div>
-  )
+import dynamic from 'next/dynamic';
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "About Us | Bihub Technology ",
+  description: "Learn about Bihub Technology's mission, values, and team",
 }
+
+const ClientAbout = dynamic(() => import('../../components/ClientAbout'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>
+});
+
+const About = () => {
+  return (
+    <div className="max-w-4xl mx-auto">
+      <ClientAbout />
+    </div>
+  );
+};
+
+export default About;

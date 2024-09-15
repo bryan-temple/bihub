@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'founder': ['Founder Grotesk', 'sans-serif'],
+        'founder': ['var(--font-founder-grotesk)', 'sans-serif'],
         'familjen': ['Familjen Grotesk', 'sans-serif'],
       },
       backgroundImage: {

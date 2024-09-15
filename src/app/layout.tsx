@@ -1,11 +1,34 @@
-// File: src/app/layout.tsx
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import AnimationWrapper from '../components/AnimationWrapper'
 import NavBar from '@/components/Navbar'
 
-const inter = Inter({ subsets: ['latin'] })
+const founderGrotesk = localFont({
+  src: [
+    {
+      path: '../fonts/FoundersGrotesk-Light.otf',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/FoundersGrotesk-Regular.otf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/FoundersGrotesk-Medium.otf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/FoundersGrotesk-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-founder-grotesk',
+})
 
 export const metadata: Metadata = {
   title: 'BiHub Technology',
@@ -18,9 +41,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      
-      <body className={inter.className}>
+    <html lang="en" className={founderGrotesk.variable}>
+      <body>
         <NavBar />
         <AnimationWrapper>
           {children}

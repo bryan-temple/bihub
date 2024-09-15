@@ -8,11 +8,12 @@
   }
 
   body {
-    @apply font-familjen ;
+    font-family: var(--font-founder-grotesk), sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-founder ;
+    font-family: var(--font-founder-grotesk), sans-serif;
   }
 }
 
+/* You can add any additional global styles here */

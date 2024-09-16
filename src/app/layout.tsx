@@ -3,6 +3,8 @@ import localFont from 'next/font/local'
 import './globals.css'
 import AnimationWrapper from '../components/AnimationWrapper'
 import NavBar from '@/components/Navbar'
+import OutlinedText from '@/components/OutlinedText';
+
 
 const founderGrotesk = localFont({
   src: [
@@ -44,9 +46,14 @@ export default function RootLayout({
     <html lang="en" className={founderGrotesk.variable}>
       <body>
         <NavBar />
+        <div className="relative min-h-screen mb-8">
+        <div className="fixed inset-0 pointer-events-none ">
+            <OutlinedText text="Bihub" />
+          </div>
         <AnimationWrapper>
           {children}
         </AnimationWrapper>
+        </div>
       </body>
     </html>
   )

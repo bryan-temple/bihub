@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from "framer-motion";
+import Link from 'next/link';
 // import { ArrowRight } from 'lucide-react';
 
 const AnimatedCircleButton = ({ onClick, className = "" }) => {
     const [isHovered, setIsHovered] = useState(false);
   
     return (
+      <Link 
+      href="/contact">
       <motion.button 
         className={`group flex flex-col mt-[8.5rem] items-center gap-y-[5rem] focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 ${className}`}
         onHoverStart={() => setIsHovered(true)}
@@ -14,8 +17,9 @@ const AnimatedCircleButton = ({ onClick, className = "" }) => {
         whileTap={{ scale: 0.95 }}
         onClick={onClick}
         aria-label="Start a project"
+        
       >
-        <div className="relative mt-[3rem]">
+        <div className="relative mt-[2rem]">
           <motion.div
             className="w-20 h-20 bg-gradient-to-br from-red-400 to-red-600 rounded-full cursor-pointer shadow-lg"
             animate={{
@@ -57,6 +61,7 @@ const AnimatedCircleButton = ({ onClick, className = "" }) => {
           </span>
         </motion.div>
       </motion.button>
+      </Link>
     );
 };
 

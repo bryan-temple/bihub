@@ -7,7 +7,7 @@ export default function MainContent() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7, delay: 0.4 }}
-      className="relative"
+      className=""
     >
       <Image
         src="/developer-image.jpg"
@@ -16,15 +16,15 @@ export default function MainContent() {
         height={300}
         className="w-full"
       />
-      <motion.p
+      {/* <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="text-center p-4 bg-white bg-opacity-80 absolute bottom-0 left-0 right-0"
+        className="text-center p-4 bg-white bg-opacity-80  bottom-0 left-0 right-0"
       >
         BiHub Technology is dedicated to creating User-centric digital
         products that prioritize accessibility and inclusivity
-      </motion.p>
+      </motion.p> */}
     </motion.section>
   );
 }

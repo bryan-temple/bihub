@@ -1,9 +1,10 @@
 "use client"
 
+"use client"
+
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu, AiOutlineInstagram, AiOutlineFacebook } from 'react-icons/ai';
-import Image from 'next/image';
 import AnimatedCircleButton from './AnimatedCircleButton';
 
 interface NavItem {
@@ -48,10 +49,8 @@ const NavBar = () => {
 
   useEffect(() => {
     if (isMenuOpen && menuRef.current) {
-      // Set focus to the first focusable element when menu opens
       firstFocusableElementRef.current?.focus();
     } else {
-      // Return focus to the menu button when menu closes
       menuButtonRef.current?.focus();
     }
   }, [isMenuOpen]);
@@ -65,7 +64,6 @@ const NavBar = () => {
       }
 
       if (event.key === 'Tab') {
-        // Trap focus within the menu
         if (!event.shiftKey && document.activeElement === lastFocusableElementRef.current) {
           event.preventDefault();
           firstFocusableElementRef.current?.focus();
@@ -82,13 +80,13 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="fixed left-0 top-0 w-full z-20 transition-colors duration-300" aria-label="Main navigation">
-        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto px-6 py-6 sm:px-6 lg:px-8">
+      <header className="fixed left-0 top-0 w-full z-50 transition-colors duration-300" aria-label="Main navigation">
+        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto p-6 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <button
               ref={menuButtonRef}
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-4 rounded-full text-navy hover:text-navy border border-beige hover:rounded-full hover:outline-orange focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-4 rounded-full z-50 text-navy hover:text-navy border border-beige hover:rounded-full hover:outline-orange focus:ring-2 focus:ring-inset focus:ring-white"
               aria-expanded={isMenuOpen}
               aria-controls="slide-out-menu"
               aria-label={isMenuOpen ? 'Close main menu' : 'Open main menu'}
@@ -99,11 +97,6 @@ const NavBar = () => {
                 <AiOutlineMenu className="block h-10 w-10" aria-hidden="true" />
               )}
             </button>
-            <Link href="/" className="flex-shrink-0" aria-label="Bihub technology home">
-               <h1 className="text-2xl font-light text-navy"> {/* style={{ color: textColor }}  */}
-                BiHub<span className="text-beige italic text-semibold">Technology</span>
-              </h1>
-            </Link>
             <AnimatedCircleButton onClick={() => {}} />
           </div>
         </nav>
@@ -112,7 +105,7 @@ const NavBar = () => {
       {/* Slide-out menu */}
       <div
         ref={menuRef}
-        className={`fixed inset-y-0 left-0 max-w-xs w-full bg-white shadow-xl z-30 transform ${
+        className={`fixed inset-y-0 left-0 max-w-xs w-full bg-navy shadow-xl z-[60] transform ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out`}
         id="slide-out-menu"
@@ -121,10 +114,10 @@ const NavBar = () => {
         aria-modal="true"
       >
         <div className="h-full flex flex-col justify-between">
-          <div className="px-4 py-6">
+          <div className="px-4 py-6 ">
             <div className="flex items-center justify-between mb-8">
               <Link href="/" className="flex-shrink-0" onClick={toggleMenu} ref={firstFocusableElementRef}>
-                <h1 className="text-2xl font-bold text-gray-900" id="menu-heading">
+                <h1 className="text-2xl font-medium text-gray-900" id="menu-heading">
                   B<span className="text-gold italic">T</span>
                 </h1>
               </Link>
@@ -137,12 +130,12 @@ const NavBar = () => {
               </button>
             </div>
             <nav aria-label="Menu">
-              <ul className="mt-8">
+              <ul className="mt-8 md:text-4xl font-light">
                 {navItems.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 text-gray-800"
+                      className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 text-navy"
                       onClick={toggleMenu}
                     >
                       {item.label}
@@ -176,7 +169,7 @@ const NavBar = () => {
 
       {/* Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={toggleMenu} aria-hidden="true" />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={toggleMenu} aria-hidden="true" />
       )}
     </>
   );

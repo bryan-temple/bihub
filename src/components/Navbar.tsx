@@ -158,7 +158,6 @@ const NavBar = () => {
                 href="#" 
                 aria-label="Facebook" 
                 className="text-[#3B5998] hover:text-[#4267B2] transition-colors focus:outline-none focus:ring-2 focus:ring-[#3B5998] rounded-full p-1"
-                ref={lastFocusableElementRef}
               >
                 <AiOutlineFacebook className="text-3xl" />
               </a>

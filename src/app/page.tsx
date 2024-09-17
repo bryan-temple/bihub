@@ -1,10 +1,10 @@
 // File: src/app/page.tsx
-import Header from '../components/Header'
+
 import HeroSection from '@/components/HeroSection'
-import MainContent from '@/components/MainContent'
+
 import TestimonialCarousel from '@/components/Testimonial'
-import TrustedBy from '@/components/TrustedBy'
-import BookConsultation from '@/components/BookConsultation'
+
+
 import CompanyIntro from '@/components/RichText'
 
 

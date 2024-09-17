@@ -116,14 +116,14 @@ const NavBar = () => {
         <div className="h-full flex flex-col justify-between">
           <div className="px-4 py-6 ">
             <div className="flex items-center justify-between mb-8">
-              <Link href="/" className="flex-shrink-0" onClick={toggleMenu} ref={firstFocusableElementRef}>
+              <Link href="/" className="flex-shrink-0" onClick={toggleMenu} >
                 <h1 className="text-2xl font-medium text-gray-900" id="menu-heading">
                   B<span className="text-gold italic">T</span>
                 </h1>
               </Link>
               <button
                 onClick={toggleMenu}
-                className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Close menu"
               >
                 <AiOutlineClose className="h-6 w-6" aria-hidden="true" />
@@ -135,7 +135,7 @@ const NavBar = () => {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 text-navy"
+                      className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white "
                       onClick={toggleMenu}
                     >
                       {item.label}

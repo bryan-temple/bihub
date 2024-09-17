@@ -4,13 +4,14 @@ import './globals.css'
 import AnimationWrapper from '../components/AnimationWrapper'
 import NavBar from '@/components/Navbar'
 import OutlinedText from '@/components/OutlinedText';
+import AgencyFooter from '@/components/Footer'
 
 
 const founderGrotesk = localFont({
   src: [
     {
       path: '../fonts/FoundersGrotesk-Light.otf',
-      weight: '200',
+      weight: '100',
       style: 'normal',
     },
     {
@@ -47,13 +48,14 @@ export default function RootLayout({
       <body>
         <NavBar />
         <div className="relative min-h-screen mb-8">
-        <div className="fixed inset-0 pointer-events-none ">
+        <div className="fixed inset-54pointer-events-none ">
             <OutlinedText text="Bihub" />
           </div>
         <AnimationWrapper>
           {children}
         </AnimationWrapper>
         </div>
+        <AgencyFooter />
       </body>
     </html>
   )

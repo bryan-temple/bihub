@@ -4,7 +4,7 @@ import './globals.css'
 import AnimationWrapper from '../components/AnimationWrapper'
 import NavBar from '@/components/Navbar'
 import OutlinedText from '@/components/OutlinedText';
-import AgencyFooter from '@/components/Footer'
+import AgencyFooter from '@/components/AgencyFooter'
 
 
 const founderGrotesk = localFont({

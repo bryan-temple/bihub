@@ -25,7 +25,7 @@ const AgencyFooter = () => {
 
   return (
     <footer className="bg-[#FBF1EA] text-navy py-16 px-4" role="contentinfo">
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-8xl mx-auto p-8">
         <motion.section 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}

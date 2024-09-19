@@ -1,11 +1,10 @@
 "use client"
 
-"use client"
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu, AiOutlineInstagram, AiOutlineFacebook } from 'react-icons/ai';
 import AnimatedCircleButton from './AnimatedCircleButton';
+import Image from 'next/image';
 
 interface NavItem {
   href: string;
@@ -19,8 +18,7 @@ const NavBar = () => {
 
   const menuRef = useRef<HTMLDivElement | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
-  const firstFocusableElementRef = useRef<HTMLElement | null>(null);
-  const lastFocusableElementRef = useRef<HTMLElement | null>(null);
+  const menuItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
@@ -48,10 +46,10 @@ const NavBar = () => {
   ];
 
   useEffect(() => {
-    if (isMenuOpen && menuRef.current) {
-      firstFocusableElementRef.current?.focus();
-    } else {
-      menuButtonRef.current?.focus();
+    if (isMenuOpen && menuItemsRef.current[0]) {
+      menuItemsRef.current[0].focus();
+    } else if (!isMenuOpen && menuButtonRef.current) {
+      menuButtonRef.current.focus();
     }
   }, [isMenuOpen]);
 
@@ -61,15 +59,20 @@ const NavBar = () => {
 
       if (event.key === 'Escape') {
         toggleMenu();
+        return;
       }
 
       if (event.key === 'Tab') {
-        if (!event.shiftKey && document.activeElement === lastFocusableElementRef.current) {
+        const focusableElements = menuItemsRef.current.filter(Boolean);
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!event.shiftKey && document.activeElement === lastElement) {
           event.preventDefault();
-          firstFocusableElementRef.current?.focus();
-        } else if (event.shiftKey && document.activeElement === firstFocusableElementRef.current) {
+          firstElement?.focus();
+        } else if (event.shiftKey && document.activeElement === firstElement) {
           event.preventDefault();
-          lastFocusableElementRef.current?.focus();
+          lastElement?.focus();
         }
       }
     };
@@ -81,7 +84,7 @@ const NavBar = () => {
   return (
     <>
       <header className="fixed left-0 top-0 w-full z-50 transition-colors duration-300" aria-label="Main navigation">
-        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto p-6 sm:px-6 lg:px-8">
+        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto p-8 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <button
               ref={menuButtonRef}
@@ -97,6 +100,12 @@ const NavBar = () => {
                 <AiOutlineMenu className="block h-10 w-10" aria-hidden="true" />
               )}
             </button>
+            <Link 
+                href="/" 
+                className="flex-shrink-0 md:block hidden"
+              >
+            <Image width={60} height={50} src="/logo.png" alt="bihub technology logo"/>
+              </Link>
             <AnimatedCircleButton onClick={() => {}} />
           </div>
         </nav>
@@ -112,31 +121,42 @@ const NavBar = () => {
         aria-labelledby="menu-heading"
         role="dialog"
         aria-modal="true"
+        aria-hidden={!isMenuOpen}
       >
         <div className="h-full flex flex-col justify-between">
           <div className="px-4 py-6 ">
             <div className="flex items-center justify-between mb-8">
-              <Link href="/" className="flex-shrink-0" onClick={toggleMenu} >
-                <h1 className="text-2xl font-medium text-gray-900" id="menu-heading">
-                  B<span className="text-gold italic">T</span>
-                </h1>
+              <Link 
+                href="/" 
+                className="flex-shrink-0" 
+                onClick={toggleMenu}
+                ref={el => menuItemsRef.current[0] = el}
+                tabIndex={isMenuOpen ? 0 : -1}
+              >
+                <span className="text-2xl font-medium text-gray-900" id="menu-heading">
+                <Image width={40} height={40} src="/logo1.png" alt="bihub technology logo"/>
+                </span>
               </Link>
               <button
                 onClick={toggleMenu}
                 className="text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Close menu"
+                ref={el => menuItemsRef.current[menuItemsRef.current.length - 1] = el}
+                tabIndex={isMenuOpen ? 0 : -1}
               >
                 <AiOutlineClose className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
             <nav aria-label="Menu">
               <ul className="mt-8 md:text-4xl font-light">
-                {navItems.map((item) => (
+                {navItems.map((item, index) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white "
+                      className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white"
                       onClick={toggleMenu}
+                      ref={el => menuItemsRef.current[index + 1] = el}
+                      tabIndex={isMenuOpen ? 0 : -1}
                     >
                       {item.label}
                     </Link>
@@ -144,24 +164,6 @@ const NavBar = () => {
                 ))}
               </ul>
             </nav>
-          </div>
-          <div className="px-4 py-6 bg-gray-50">
-            <div className="flex justify-center space-x-6 mb-4">
-              <a 
-                href="#" 
-                aria-label="Instagram" 
-                className="text-[#C13584] hover:text-[#E1306C] transition-colors focus:outline-none focus:ring-2 focus:ring-[#C13584] rounded-full p-1"
-              >
-                <AiOutlineInstagram className="text-3xl" />
-              </a>
-              <a 
-                href="#" 
-                aria-label="Facebook" 
-                className="text-[#3B5998] hover:text-[#4267B2] transition-colors focus:outline-none focus:ring-2 focus:ring-[#3B5998] rounded-full p-1"
-              >
-                <AiOutlineFacebook className="text-3xl" />
-              </a>
-            </div>
           </div>
         </div>
       </div>

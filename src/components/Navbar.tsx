@@ -18,16 +18,16 @@ const NavBar = () => {
 
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const menuItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const menuItemsRef = useRef<(HTMLElement | null)[]>([]);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []);
 
-  const setMenuItemRef = useCallback((index: number) => (el: HTMLAnchorElement | null) => {
+  const setMenuItemRef = useCallback((index: number) => (el: HTMLElement | null) => {
     menuItemsRef.current[index] = el;
   }, []);
+
 
   useEffect(() => {
     const changeColor = () => {
@@ -145,7 +145,7 @@ const NavBar = () => {
                 onClick={toggleMenu}
                 className="text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Close menu"
-                ref={closeButtonRef}
+                ref={setMenuItemRef(menuItemsRef.current.length - 1)}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 <AiOutlineClose className="h-6 w-6" aria-hidden="true" />

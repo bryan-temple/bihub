@@ -18,13 +18,14 @@ const NavBar = () => {
 
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const menuItemsRef = useRef<(HTMLElement | null)[]>([]);
+  const menuItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []);
 
-  const setMenuItemRef = useCallback((index: number) => (el: HTMLElement | null) => {
+  const setMenuItemRef = useCallback((index: number) => (el: HTMLAnchorElement | null) => {
     menuItemsRef.current[index] = el;
   }, []);
 
@@ -145,7 +146,7 @@ const NavBar = () => {
                 onClick={toggleMenu}
                 className="text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Close menu"
-                ref={setMenuItemRef(menuItemsRef.current.length - 1)}
+                ref={closeButtonRef}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 <AiOutlineClose className="h-6 w-6" aria-hidden="true" />
@@ -181,3 +182,8 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+
+
+

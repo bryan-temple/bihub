@@ -7,12 +7,12 @@ import Image from 'next/image'
 
 const AgencyFooter = () => {
   const [copied, setCopied] = useState(false);
-  const email = 'info@bihub.tech';
+  const email = 'hello@bihub.tech';
 
   const socialIcons = [
+    { Icon: FaLinkedinIn, label: 'LinkedIn', url: 'https://linkedin.com' },
     { Icon: FaFacebookF, label: 'Facebook', url: 'https://facebook.com' },
     { Icon: FaTwitter, label: 'Twitter', url: 'https://twitter.com' },
-    { Icon: FaLinkedinIn, label: 'LinkedIn', url: 'https://linkedin.com' },
     { Icon: FaInstagram, label: 'Instagram', url: 'https://instagram.com' }
   ];
 
@@ -104,21 +104,21 @@ const AgencyFooter = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             aria-labelledby="social-heading"
             >
-            <h3 id="social-heading" className="text-orange mb-4 font-medium">Follow us</h3>
-            <ul className="space-y-2">
+            <h3 id="social-heading" className="text-orange  font-medium">Follow us </h3>
+            <ul className="flex justify-center items-center gap-x-3 md:gap-x-4 my-4">
               {socialIcons.map(({ Icon, label, url }, index) => (
                 <li key={index}>
                   <motion.a
                     href={url}
-                    className="flex items-center text-navy  focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    className="flex items-center gapy-x-4 text-navy justify-center  focus:outline-none focus:ring-2 focus:ring-orange-500"
                     whileHover={{ scale: 1.05, x: 10 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={`Follow us on ${label}`}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <Icon size={20} aria-hidden="true" className="mr-2 text-navy" />
-                    <span>{label}</span>
+                    <Icon size={40} aria-hidden="true" className=" text-navy" color={'#112e40'} />
+                    {/* <span>{label}</span> */}
                   </motion.a>
                 </li>
               ))}
@@ -145,7 +145,7 @@ const AgencyFooter = () => {
         </div>
       </div>
 <Image width={40} height={40} src="/logo.png" alt="bihub technology logo"/>
-      <p className="text-gray-700 mt-4">
+      <p className="text-navy mt-4">
               ©{new Date().getFullYear()} BiHub Technology
               All rights reserved.
             </p>

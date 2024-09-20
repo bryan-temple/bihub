@@ -1,18 +1,32 @@
 import React from 'react';
 import * as motion from "framer-motion/client"
 
-
 interface OutlinedTextProps {
   text: string;
   outlineColor?: string;
+  opacity?: number;
 }
 
 const OutlinedText: React.FC<OutlinedTextProps> = ({
   text,
-  outlineColor = '#EEC9B6', // Light pink outline color, adjust as needed
+  outlineColor = '#EEC9B6',
+  opacity = 0.5, // Default opacity value, adjust as needed
 }) => {
+  // Convert the hexadecimal color to RGB
+  const hexToRgb = (hex: string) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  };
+
+  const rgb = hexToRgb(outlineColor);
+  const outlineColorWithOpacity = rgb ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})` : outlineColor;
+
   return (
-    <div className=" w-full overflow-hidden absolute inset-1 flex justify-center items-center mt-[5rem] md:mt-[8rem]">
+    <div className="w-full overflow-hidden absolute inset-1 flex justify-center items-center mt-[5rem] md:mt-[8rem]">
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: '100%' }}
@@ -20,11 +34,8 @@ const OutlinedText: React.FC<OutlinedTextProps> = ({
         className="w-full"
       >
         <svg
-          className="w-full  h-auto "
-
+          className="w-full h-auto"
           viewBox={`0 0 ${text.length * 60} 100`}
-          // className="w-full h-auto"
-          // viewBox={`0 0 ${text.length * 100} 120`}
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid meet"
         >
@@ -34,12 +45,9 @@ const OutlinedText: React.FC<OutlinedTextProps> = ({
             fontSize="110"
             fontFamily={`var(--font-founder-grotesk)`}
             fontWeight="500"
-            // textAnchor="start"
             fill="none"
-            stroke={outlineColor}
+            stroke={outlineColorWithOpacity}
             strokeWidth="0.2"
-            // className=" w-full"
-            // dominantBaseline="middle"
           >
             {text}
           </text>

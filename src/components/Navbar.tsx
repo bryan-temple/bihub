@@ -41,7 +41,6 @@ const NavBar = () => {
   const navItems: NavItem[] = [
     { href: '/', label: 'Home' },
     { href: '/#menu', label: 'Our Expertise' },
-    { href: '/contact', label: 'Contact Us' },
     { href: '/portfolio', label: 'Portfolio' },
   ];
 

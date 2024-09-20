@@ -49,7 +49,7 @@ export default function RootLayout({
         <NavBar />
         <div className="relative min-h-screen mb-8">
         <div className="fixed inset-0 pointer-events-none ">
-            <OutlinedText text="Bihub" />
+            <OutlinedText text="Bihub" outlineColor="#EEC9B6" opacity={0.6} />
           </div>
         <AnimationWrapper>
           {children}

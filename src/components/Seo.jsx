@@ -29,8 +29,8 @@ const HomePageSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Bihub Technology",
-    "url": "https://www.bihub.com",
-    "logo": "https://www.bihub.com/logo.png",
+    "url": "https://www.bihub.tech",
+    "logo": "https://www.bihub.tech/logo.png",
     "sameAs": [
       "https://www.facebook.com/bihubtech",
       "https://www.twitter.com/bihubtech",

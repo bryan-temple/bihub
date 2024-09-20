@@ -16,8 +16,8 @@ const NavBar = () => {
   const [bgColor, setBgColor] = useState('transparent');
   const [textColor, setTextColor] = useState('white');
 
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuItemsRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
   const toggleMenu = useCallback(() => {
@@ -46,7 +46,7 @@ const NavBar = () => {
 
   useEffect(() => {
     if (isMenuOpen && menuItemsRef.current[0]) {
-      menuItemsRef.current[0].focus();
+      menuItemsRef.current[0]?.focus();
     } else if (!isMenuOpen && menuButtonRef.current) {
       menuButtonRef.current.focus();
     }
@@ -129,7 +129,7 @@ const NavBar = () => {
                 href="/" 
                 className="flex-shrink-0" 
                 onClick={toggleMenu}
-                ref={el => menuItemsRef.current[0] = el}
+                ref={(el) => menuItemsRef.current[0] = el}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 <span className="text-2xl font-medium text-gray-900" id="menu-heading">
@@ -140,7 +140,7 @@ const NavBar = () => {
                 onClick={toggleMenu}
                 className="text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Close menu"
-                ref={el => menuItemsRef.current[menuItemsRef.current.length - 1] = el}
+                ref={(el) => { if (el) menuItemsRef.current[menuItemsRef.current.length - 1] = el }}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 <AiOutlineClose className="h-6 w-6" aria-hidden="true" />
@@ -154,7 +154,7 @@ const NavBar = () => {
                       href={item.href}
                       className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white"
                       onClick={toggleMenu}
-                      ref={el => menuItemsRef.current[index + 1] = el}
+                      ref={(el) => menuItemsRef.current[index + 1] = el}
                       tabIndex={isMenuOpen ? 0 : -1}
                     >
                       {item.label}

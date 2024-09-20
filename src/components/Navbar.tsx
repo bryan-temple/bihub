@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { AiOutlineClose, AiOutlineMenu, AiOutlineInstagram, AiOutlineFacebook } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import AnimatedCircleButton from './AnimatedCircleButton';
 import Image from 'next/image';
 
@@ -22,6 +22,10 @@ const NavBar = () => {
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
+  }, []);
+
+  const setMenuItemRef = useCallback((index: number) => (el: HTMLAnchorElement | null) => {
+    menuItemsRef.current[index] = el;
   }, []);
 
   useEffect(() => {
@@ -129,18 +133,18 @@ const NavBar = () => {
                 href="/" 
                 className="flex-shrink-0" 
                 onClick={toggleMenu}
-                ref={(el) => menuItemsRef.current[0] = el}
+                ref={setMenuItemRef(0)}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 <span className="text-2xl font-medium text-gray-900" id="menu-heading">
-                <Image width={40} height={40} src="/logo1.png" alt="bihub technology logo"/>
+                  <Image width={40} height={40} src="/logo1.png" alt="bihub technology logo"/>
                 </span>
               </Link>
               <button
                 onClick={toggleMenu}
                 className="text-gray-200 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                 aria-label="Close menu"
-                ref={(el) => { if (el) menuItemsRef.current[menuItemsRef.current.length - 1] = el }}
+                ref={setMenuItemRef(menuItemsRef.current.length - 1)}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
                 <AiOutlineClose className="h-6 w-6" aria-hidden="true" />
@@ -154,7 +158,7 @@ const NavBar = () => {
                       href={item.href}
                       className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 text-white"
                       onClick={toggleMenu}
-                      ref={(el) => menuItemsRef.current[index + 1] = el}
+                      ref={setMenuItemRef(index + 1)}
                       tabIndex={isMenuOpen ? 0 : -1}
                     >
                       {item.label}
@@ -176,3 +180,8 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+
+
+

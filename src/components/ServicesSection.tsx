@@ -39,7 +39,7 @@ const ServiceDiagram = () => {
             >
               <motion.button
                 className="w-full flex items-center bg-white bg-opacity-10 rounded-lg p-6 cursor-pointer backdrop-blur-md transition-colors duration-300 hover:bg-opacity-20"
-                onClick={() => setActiveService(activeService === service ? null : service)}
+                onClick={() => setActiveService(activeService === service ? null : service as any)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -55,7 +55,7 @@ const ServiceDiagram = () => {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="text-white text-lg">{service.description}</p>
+                    <p className="text-white text-lg">{(service as any).description}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

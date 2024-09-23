@@ -22,9 +22,9 @@ const CTASection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Let's create something amazing together.
+          Let&apos;s create something amazing together.
         </motion.p>
-        <Link href="/contact">
+        {/* <Link href="/contact">
           <motion.button
             className="bg-orange text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-orange-600 transition-colors duration-300"
             whileHover={{ scale: 1.05 }}
@@ -32,7 +32,7 @@ const CTASection = () => {
           >
             Get in Touch
           </motion.button>
-        </Link>
+        </Link> */}
       </div>
     </section>
   );

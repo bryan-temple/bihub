@@ -7,11 +7,12 @@ import CompanyIntro from '@/components/RichText'
 import CTASection from '@/components/CTASection'
 import AgencyFooter from '@/components/AgencyFooter'
 
-
 export default function Home() {
   return (
     <div className='flex flex-col'>
-      <main className='flex-1'>
+      {/* Skip to main content link */}
+      <a href="#main-content" className="skip-to-main-content">Skip to main content</a>
+      <main id="main-content" className='flex-1'>
         <HeroSection />
         {/* <ServicesSection /> */}
         <section>
@@ -25,7 +26,7 @@ export default function Home() {
         <CTASection />
       </main>
       <footer>
-      <AgencyFooter />
+        <AgencyFooter />
       </footer>
     </div>
   )

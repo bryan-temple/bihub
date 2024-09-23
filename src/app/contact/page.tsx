@@ -5,6 +5,39 @@ import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function ContactPage() {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('https://bihub.tech/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert('Email sent successfully');
+        form.reset();
+      } else {
+        alert('Error sending email');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error sending email');
+    }
+  };
+
   return (
     <div className=" text-navy min-h-screen bg-slate z-0 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +56,7 @@ export default function ContactPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2 className="text-3xl font-light mb-8">Get in Touch</h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-4">Your Name <span className="text-red-500">*</span></label>
                 <input type="text" id="name" name="name" className="w-full px-4 py-4 rounded focus:outline-none focus:ring-2 focus:ring-orange-500 border border-t-0 border-l-0  border-r-0 border-b-navy " required />
@@ -61,8 +94,6 @@ export default function ContactPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Contact us to book a consultation"
-              
-              
             >
               <span className="text-[14px] uppercase relative z-10 px-4 py-2">Send Message</span>
             </motion.button>

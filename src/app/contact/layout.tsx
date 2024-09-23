@@ -11,8 +11,8 @@ export default function ContactLayout({
     children: React.ReactNode
   }) {
     return (
-      <div className="bg-gray-100 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="bg-gray min-h-screen w-full container mt-56 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl bg-white shadow-lg rounded-lg overflow-hidden">
           {children}
         </div>
       </div>

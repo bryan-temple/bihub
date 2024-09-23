@@ -11,20 +11,22 @@ export default function HeroSection() {
       <div className="max-w-8xl mx-auto grid grid-rows-[auto,1fr] gap-8 h-full mt-56 ">
         {/* Top section with menu and tagline */}
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-light mb-[8rem] p-4 text-navy"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-[52px] font-light mb-[8rem] p-4 text-navy"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, staggerChildren: 0.1 }}
           >
-            <motion.p className='text-2xl md:text-3xl text-orange font-medium '>We offer</motion.p>
-            <motion.p className="py-3 ">Accessible and Innovative Web Solutions</motion.p>
+            <motion.p className='text-2xl md:text-3xl text-orange font-medium mb-4'>We offer</motion.p>
+            <motion.p className="">Accessible and Innovative Web Solutions</motion.p>
             <motion.p className=''> for your Digital Presence</motion.p>
 
           </motion.h1>
        
 
         {/* Bottom section with image */}
-        <div className=" w-full h-full ">
+        <div className=" w-full flex justify-center items-center">
+          <div className='w-full max-w-7xl'>
+
           <motion.div 
             className="  relative"
             initial={{ opacity: 0 }}
@@ -35,11 +37,12 @@ export default function HeroSection() {
               src="/developer-image.jpg" 
               alt="Developer working on code"
               width={500}
-              height={300}
+              height={200}
               className="w-full"
 
             />
           </motion.div>
+          </div>
         </div>
       </div>
     </div>

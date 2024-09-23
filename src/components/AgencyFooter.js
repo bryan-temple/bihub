@@ -24,7 +24,7 @@ const AgencyFooter = () => {
   };
 
   return (
-    <footer className="bg-[#FBF1EA] text-navy py-16 px-4" role="contentinfo">
+    <footer className="bg-[#FBF1EA] text-navy py-6 px-4" role="contentinfo">
       <div className="max-w-8xl mx-auto p-8">
         <motion.section 
           className="text-center mb-16"
@@ -35,9 +35,9 @@ const AgencyFooter = () => {
         >
           <h2 id="cta-heading" className="text-4xl md:text-6xl font-light mb-8">Book a Consultation
             
-          <br></br><span className="">session now!</span>
+          <br></br><span className="">session! </span>
           </h2>
-          <div className="relative inline-block mt-6">
+          <Link className="relative inline-block mt-6" href="/contact">
             <svg width="180" height="180" viewBox="0 0 180 180" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <motion.circle
                 cx="90"
@@ -62,11 +62,12 @@ const AgencyFooter = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Contact us to book a consultation"
-              href="/contact"
+              
+              
             >
-              <span className="text-[16px] uppercase relative z-10 px-4 py-2">Contact us</span>
+              <span className="text-[14px] uppercase relative z-10 px-4 py-2">Contact us</span>
             </motion.button>
-          </div>
+          </Link>
         </motion.section>
         
         <div className="grid grid-cols-2 md:grid-cols-3 md:gap-x-[5rem] text-xl py-[5rem]">

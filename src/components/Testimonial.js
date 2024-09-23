@@ -50,15 +50,16 @@ const TestimonialCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-8xl mx-auto p-8 px-4 py-12">
+    <div className="w-full max-w-8xl mx-auto p-8 px-4 py-16 bg-gray-50">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-navy">What Our Clients Say</h2>
       <div className="relative overflow-hidden bg-white rounded-3xl shadow-lg">
         <div className="flex flex-col md:flex-row items-center justify-between p-8 md:p-12 lg:p-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className={`${testimonials[currentIndex].color} rounded-3xl p-8 md:p-10 lg:p-12 shadow-md md:w-2/3 lg:w-3/4`}
             >

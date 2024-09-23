@@ -32,9 +32,10 @@ const HomePageSchema = () => {
     "url": "https://www.bihub.tech",
     "logo": "https://www.bihub.tech/logo.png",
     "sameAs": [
-      "https://www.facebook.com/bihubtech",
-      "https://www.twitter.com/bihubtech",
-      "https://www.linkedin.com/company/bihubtech"
+      "https://www.facebook.com/bi Hub",
+      "https://www.twitter.com/bihub_tech",
+      "https://www.linkedin.com/company/bihub-technology",
+      "https://www.instagram.com/bihub_tech"
     ],
     "description": "Bihub Technology crafts digital solutions that push boundaries while ensuring inclusivity."
   };

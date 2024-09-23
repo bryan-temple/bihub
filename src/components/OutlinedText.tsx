@@ -26,7 +26,7 @@ const OutlinedText: React.FC<OutlinedTextProps> = ({
   const outlineColorWithOpacity = rgb ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${opacity})` : outlineColor;
 
   return (
-    <div className="w-full overflow-hidden absolute inset-1 flex justify-center items-center mt-[5rem] md:mt-[8rem]">
+    <div className="w-full overflow-hidden absolute inset-1 flex justify-center items-center mt-[2rem] md:mt-[3rem]">
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: '100%' }}

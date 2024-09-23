@@ -4,7 +4,6 @@ import './globals.css'
 import AnimationWrapper from '../components/AnimationWrapper'
 import NavBar from '@/components/Navbar'
 import OutlinedText from '@/components/OutlinedText';
-import AgencyFooter from '@/components/AgencyFooter'
 
 
 const founderGrotesk = localFont({
@@ -35,7 +34,7 @@ const founderGrotesk = localFont({
 
 export const metadata: Metadata = {
   title: 'BiHub Technology',
-  description: 'Accessible and Innovative web solutions for your Digital Presence',
+  description: 'We launch visionary brands and build exceptional digital experiences',
 }
 
 export default function RootLayout({
@@ -49,13 +48,12 @@ export default function RootLayout({
         <NavBar />
         <div className="relative min-h-screen mb-8">
         <div className="fixed inset-0 pointer-events-none ">
-            <OutlinedText text="Bihub" outlineColor="#EEC9B6" opacity={0.6} />
+            <OutlinedText text="Bihub" outlineColor="#EEC9B6" opacity={0.3} />
           </div>
         <AnimationWrapper>
           {children}
         </AnimationWrapper>
         </div>
-        <AgencyFooter />
       </body>
     </html>
   )

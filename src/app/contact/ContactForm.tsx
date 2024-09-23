@@ -37,7 +37,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="p-8">
+    <div className="p-8 ">
       <h1 className="text-3xl font-bold text-navy mb-1">Let&apos;s talk,</h1>
       <h2 className="text-2xl font-bold text-navy mb-8">We respond immediately!</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

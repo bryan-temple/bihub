@@ -118,7 +118,7 @@ const AgencyFooter = () => {
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <Icon size={40} aria-hidden="true" className=" text-navy" color={'#112e40'} />
+                    <Icon size={30} aria-hidden="true" className=" text-navy" color={'#112e40'} />
                     {/* <span>{label}</span> */}
                   </motion.a>
                 </li>

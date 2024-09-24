@@ -29,7 +29,6 @@ const NavBar = () => {
     menuItemsRef.current[index] = el;
   }, []);
 
-
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 90) {
@@ -46,9 +45,7 @@ const NavBar = () => {
 
   const navItems: NavItem[] = [
     { href: '/', label: 'Home' },
-    // { href: '/#menu', label: 'Our Expertise' },
     { href: '/contact', label: 'Contact Us' },
-    // { href: '/portfolio', label: 'Portfolio' },
   ];
 
   useEffect(() => {
@@ -90,28 +87,28 @@ const NavBar = () => {
   return (
     <>
       <header className="fixed left-0 top-0 w-full z-50 transition-colors duration-300" aria-label="Main navigation">
-        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto p-8 sm:px-6 lg:px-8">
+        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto p-4 sm:p-6 lg:p-8">
           <div className="flex justify-between items-center h-16">
             <button
               ref={menuButtonRef}
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-4 rounded-full z-50 text-navy hover:text-navy border border-beige hover:rounded-full hover:outline-orange focus:ring-2 focus:ring-inset focus:ring-white"
+              className="inline-flex items-center justify-center p-2 sm:p-3 md:p-4 rounded-full z-50 text-navy hover:text-navy border border-beige hover:rounded-full hover:outline-orange focus:ring-2 focus:ring-inset focus:ring-white"
               aria-expanded={isMenuOpen}
               aria-controls="slide-out-menu"
               aria-label={isMenuOpen ? 'Close main menu' : 'Open main menu'}
             >
               {isMenuOpen ? (
-                <AiOutlineClose className="block h-10 w-10" aria-hidden="true" />
+                <AiOutlineClose className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" aria-hidden="true" />
               ) : (
-                <AiOutlineMenu className="block h-10 w-10" aria-hidden="true" />
+                <AiOutlineMenu className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" aria-hidden="true" />
               )}
             </button>
             <Link 
                 href="/" 
                 className="flex-shrink-0 md:block hidden"
               >
-            <Image width={60} height={50} src="/logo.png" alt="bihub technology logo"/>
-              </Link>
+              <Image width={60} height={50} src="/logo.png" alt="bihub technology logo"/>
+            </Link>
             <AnimatedCircleButton onClick={() => {}} />
           </div>
         </nav>
@@ -154,7 +151,7 @@ const NavBar = () => {
               </button>
             </div>
             <nav aria-label="Menu">
-              <ul className="mt-8 md:text-4xl font-light">
+              <ul className="mt-8 text-2xl sm:text-3xl md:text-4xl font-light">
                 {navItems.map((item, index) => (
                   <li key={item.href}>
                     <Link
@@ -183,8 +180,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
-
-
-

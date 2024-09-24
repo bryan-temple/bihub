@@ -7,11 +7,11 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <div className=" bg-white p-6">
+    <div className=" bg-white p-4 md:p-6">
       <div className="max-w-8xl mx-auto grid grid-rows-[auto,1fr] gap-8 h-full mt-56 ">
         {/* Top section with menu and tagline */}
           <motion.h1 
-            className="text-xl sm:text-3xl md:text-5xl lg:text-[52px] font-light mb-[8rem] p-4 text-navy"
+            className="text-xl sm:text-3xl md:text-5xl lg:text-[52px] font-light mb-[8rem] p-2 text-navy"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, staggerChildren: 0.1 }}

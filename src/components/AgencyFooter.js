@@ -25,7 +25,7 @@ const AgencyFooter = () => {
 
   return (
     <footer className="bg-[#FBF1EA] text-navy py-6 px-4" role="contentinfo">
-      <div className="max-w-8xl mx-auto p-8">
+      <div className="max-w-8xl mx-auto ">
         <motion.section 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -33,7 +33,7 @@ const AgencyFooter = () => {
           transition={{ duration: 0.8 }}
           aria-labelledby="cta-heading"
         >
-          <h2 id="cta-heading" className="text-4xl md:text-6xl font-light mb-8">Book a Consultation
+          <h2 id="cta-heading" className="text-4xl md:text-6xl font-light mb-3">Book a Consultation
             
           <br></br><span className="">session! </span>
           </h2>
@@ -79,17 +79,17 @@ const AgencyFooter = () => {
           >
             <h3 id="contact-heading" className="text-orange mb-4 font-medium">Reach us</h3>
             <div className="flex items-center ">
-              <motion.a 
-                href={`mailto:${email}`}
+              <motion.div 
+
                 className="underline text-navy  focus:outline-none focus:ring-2 focus:ring-orange-500 mr-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {email}
-              </motion.a>
+              </motion.div>
               <motion.button
                 onClick={copyToClipboard}
-                className="bg-purple-100 text-navy p-2 rounded-full hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="bg-purple-100 text-navy  rounded-full hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label={copied ? "Email copied to clipboard" : "Copy email to clipboard"}

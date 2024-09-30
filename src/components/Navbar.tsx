@@ -87,8 +87,8 @@ const NavBar = () => {
   return (
     <>
       <header className="fixed left-0 top-0 w-full z-50 transition-colors duration-300" aria-label="Main navigation">
-        <nav style={{ backgroundColor: bgColor }} className="max-w-8xl mx-auto p-4 sm:p-6 lg:p-8">
-          <div className="flex justify-between items-center h-16">
+        <nav style={{ backgroundColor: bgColor }} className=" p-4 sm:p-6 lg:p-8">
+          <div className="flex justify-between items-center gap-x-8 h-16">
             <button
               ref={menuButtonRef}
               onClick={toggleMenu}
@@ -103,12 +103,12 @@ const NavBar = () => {
                 <AiOutlineMenu className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" aria-hidden="true" />
               )}
             </button>
-            <Link 
+            {/* <Link 
                 href="/" 
                 className="flex-shrink-0 md:block hidden"
               >
               <Image width={60} height={50} src="/logo.png" alt="bihub technology logo"/>
-            </Link>
+            </Link> */}
             <AnimatedCircleButton onClick={() => {}} />
           </div>
         </nav>

@@ -33,7 +33,7 @@ const AgencyFooter = () => {
           transition={{ duration: 0.8 }}
           aria-labelledby="cta-heading"
         >
-          <h2 id="cta-heading" className="text-4xl md:text-6xl font-light mb-3">Book a Consultation
+          <h2 id="cta-heading" className="text-4xl md:text-5xl font-light my-4">Book a Consultation
             
           <br></br><span className="">session! </span>
           </h2>

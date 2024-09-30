@@ -6,6 +6,7 @@ import TestimonialCarousel from '@/components/Testimonial'
 import CompanyIntro from '@/components/RichText'
 import CTASection from '@/components/CTASection'
 import AgencyFooter from '@/components/AgencyFooter'
+import ServicesShowcase from '@/components/ServicesShowcase'
 
 export default function Home() {
   return (
@@ -22,8 +23,11 @@ export default function Home() {
             className="p-6 max-w-screen md:w-full z-0 bg-white-100 py-16"
           />
         </section>
+        {/* <CTASection /> */}
+        <section>
+          <ServicesShowcase />
+        </section>
         <TestimonialCarousel />
-        <CTASection />
       </main>
       <footer>
         <AgencyFooter />

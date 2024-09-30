@@ -8,17 +8,20 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <div className=" bg-white p-4 md:p-6">
-      <div className="max-w-8xl mx-auto grid grid-rows-[auto,1fr] gap-8 h-full mt-56 ">
+      <div className="max-w-7xl mx-auto grid grid-rows-[auto,1fr] gap-8 h-full mt-56 ">
         {/* Top section with menu and tagline */}
           <motion.h1 
-            className="text-xl sm:text-3xl md:text-5xl lg:text-[52px] font-light mb-[8rem] p-2 text-navy"
+            className="mb-[2rem] p-8 text-navy"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, staggerChildren: 0.1 }}
           >
-            <motion.p className='text-xl sm:text-2xl md:text-3xl text-orange font-medium mb-4'>We offer</motion.p>
-            <motion.p className="max-w-full">Accessible and Innovative Web Solutions</motion.p>
+            <motion.p className='text-xl sm:text-2xl md:text-3xl text-orange font-medium mb-4 '>We offer</motion.p>
+           
+          <h1 className="max-w-xl text-xl sm:text-3xl md:text-4xl  font-light ">
+          <motion.p className="">Accessible and Innovative Web Solutions</motion.p>
             <motion.p className=''> for your Digital Presence</motion.p>
+          </h1>
 
           </motion.h1>
        

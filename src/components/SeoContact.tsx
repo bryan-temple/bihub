@@ -1,18 +1,17 @@
-"use client";
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { useSearchParams } from 'next/navigation';
 
-export default function ContactPage() {
+export default function SeoContact() {
   const searchParams = useSearchParams();
-  const [selectedPlan, setSelectedPlan] = useState(searchParams.get('plan') || '');
+  const [selectedPlan, setSelectedPlan] = useState('');
 
   useEffect(() => {
     emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_USER_ID!);
-  }, []);
+    setSelectedPlan(searchParams.get('plan') || '');
+  }, [searchParams]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -131,7 +130,7 @@ export default function ContactPage() {
                 Send Message
               </motion.button>
             </form>
-          </motion.div>
+            </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}

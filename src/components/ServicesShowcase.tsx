@@ -93,63 +93,63 @@ const SEOCard: React.FC = () => {
 };
 
 const ImageCard: React.FC = () => (
-  <div className="relative rounded-lg overflow-hidden shadow-md ">
-    <Image src="/developer-image.jpg" alt="Leaside Blvd" layout="fill" objectFit="cover" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-6">
-      <span className="text-white text-sm font-semibold mb-2">FEATURED WORK</span>
-      <h4 className="text-white text-2xl font-bold mb-4">Leaside Blvd</h4>
-      <Link href="/case-study" className="inline-flex items-center text-white font-semibold hover:underline">
-        Read Case Study <ArrowRight className="ml-2 h-4 w-4" />
-      </Link>
-    </div>
+  <div className="relative rounded-lg overflow-hidden shadow-md aspect-[4/3]">
+  <Image src="/developer-image.jpg" alt="Leaside Blvd" layout="fill" objectFit="cover" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent flex flex-col justify-end p-4 sm:p-6">
+    <span className="text-white text-xs sm:text-sm font-semibold mb-1 sm:mb-2">FEATURED WORK</span>
+    <h4 className="text-white text-lg sm:text-2xl font-bold mb-2 sm:mb-4">Leaside Blvd</h4>
+    <Link href="/case-study" className="inline-flex items-center text-white text-sm sm:text-base font-semibold hover:underline">
+      Read Case Study <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
+    </Link>
   </div>
+</div>
 );
+
+
 
 const ServicesShowcase: React.FC = () => {
   return (
-    <div className="bg-blue-50 py-16 px-4 sm:px-6 lg:px-8 relative" id="services-showcase" >
+    <div className="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 relative" id="services-showcase">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">How can we help you?</h2>
-        <div className="flex flex-col lg:flex-row gap-12">
+      <span className="my-12"> </span>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Left column: Introduction and CTA */}
-          <div className="lg:w-1/4">
+          <div className="lg:col-span-1">
             <h2 className="text-3xl font-regular mb-4">Our Services</h2>
             <p className="text-gray-600 mb-8">
               Creative solutions crafted to help you achieve the perfect digital presence
             </p>
-            {/* <Link href="/contact" className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition inline-flex items-center mb-4">
-              Request a Proposal <ArrowRight className="ml-2 h-4 w-4" />
-            </Link> */}
             <Link href="/contact" className="text-navy font-semibold flex items-center hover:underline">
               Contact Us <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
 
           {/* Right column: Services */}
-          <div className="lg:w-3/4">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
               <ServiceCard
                 title="Web Design & Development"
-                description="Every web design project at Bihub Technology stands out as unique, receiving unparalleled attention and care. Our team, composed of award-winning web designers and web developers, is renowned for its ability to craft visually striking websites."
+                description="Every web design project at Bihub stands out as unique, receiving unparalleled attention and care. Our team, composed of award-winning web designers and web developers, is renowned for its ability to craft visually striking websites. These sites are not only a feast for the eyes but also excel in functionality, effectively meeting their intended objectives."
                 tags={["SHOPIFY", "WEBFLOW", "UI/UX", "CUSTOM DESIGN", "TESTING"]}
                 link="/web-design"
                 linkText="Web Design Service"
-                className="lg:col-span-2"
+                className="md:col-span-1"
                 accent="#3B82F6"
               />
               
               <SEOCard />
+              <ServiceCard
+                title="Digital Accessibility"
+                description="Ensure your digital presence is inclusive and compliant with accessibility standards. Our experts optimize your websites and applications to provide equal access and opportunities for all users, regardless of their abilities."
+                tags={["WCAG COMPLIANCE", "SCREEN READER OPTIMIZATION", "KEYBOARD NAVIGATION", "COLOR CONTRAST", "ALT TEXT", "ARIA ATTRIBUTES"]}
+                link="/accessibility"
+                linkText="Accessibility Services"
+                accent="#8B5CF6"
+              />
               
               <ImageCard />
-              
-              <ServiceCard
-    title="Digital Accessibility"
-    description="Ensure your digital presence is inclusive and compliant with accessibility standards. Our experts optimize your websites and applications to provide equal access and opportunities for all users, regardless of their abilities."
-    tags={["WCAG COMPLIANCE", "SCREEN READER OPTIMIZATION", "KEYBOARD NAVIGATION", "COLOR CONTRAST", "ALT TEXT", "ARIA ATTRIBUTES"]}
-    link="/accessibility"
-    linkText="Learn more"
-    accent="#8B5CF6"
-  />
+
               <ServiceCard
                 title="Visual Branding"
                 description="Shaping your brand's visual identity requires precision, creativity, and expertise, all of which our award-winning team delivers. From designing logos to crafting cohesive color palettes, we ensure your brand communicates effectively across all channels."
@@ -157,19 +157,18 @@ const ServicesShowcase: React.FC = () => {
                 link="/visual-branding"
                 linkText="Learn more"
                 accent="#F59E0B"
-                          />
-              
-              {/* <ServiceCard
+              />
+              <ServiceCard
                 title="Brand Research & Strategy"
                 description="Comprehensive brand research and strategy are the foundations of effective branding. Through in-depth analysis of competitors, market trends, and target audiences, we inform strategic decision-making to shape your brand's future."
                 tags={["BRAND POSITIONING", "COMPETITOR ANALYSIS", "MARKET TREND ANALYSIS", "BRAND MESSAGING FRAMEWORK", "BRAND VOICE AND TONE", "BRAND VALUE AND PROMISE"]}
                 link="/brand-strategy"
                 linkText="Learn more"
                 accent="#10B981"
-              /> */}
+              />
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8">
               {[
                 { title: "Consultation & Audit", description: "Tailored solutions for your business through one-on-one personalized sessions." },
                 { title: "Graphic Design", description: "Impactful marketing visuals and illustrations that elevate brand recognition." },
@@ -182,6 +181,7 @@ const ServicesShowcase: React.FC = () => {
                   description={service.description}
                   link={`/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                   linkText="Learn more"
+                  className="h-full"
                 />
               ))}
             </div>

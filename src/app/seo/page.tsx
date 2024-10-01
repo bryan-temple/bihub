@@ -1,7 +1,7 @@
 import SeoContact from '@/components/SeoContact'
 import React,{ Suspense } from 'react'
 
-export const SeoContactPage = () => {
+export default function SeoContactPage() {
   return (
     <div>
       <Suspense fallback={<div>Loading...</div>}>

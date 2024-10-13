@@ -29,13 +29,13 @@ export default function Home() {
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-navy">
           Skip to main content
         </a>
-        
         <main id="main-content" className='flex-1'>
           <HeroSection 
             image="/developer-image.jpg"
             heading="We launch visionary brands and build exceptional digital experiences"
-            // buttonLabel="Learn More"
-            // buttonLink="/about"
+            subheading=""
+            buttonLabel=""
+            buttonLink=""
             // subheading="Inclusive Digital Solutions for All"
 
           />

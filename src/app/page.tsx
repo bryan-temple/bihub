@@ -4,7 +4,7 @@ import ServicesShowcase from '@/components/ServicesShowcase';
 import TestimonialCarousel from '@/components/Testimonial';
 import CompanyIntro from '@/components/RichText';
 import AgencyFooter from '@/components/AgencyFooter';
-import { SEOHead, HomePageSchema } from '@/components/SEO';
+import { SEOHead, HomePageSchema } from '@/components/Seo';
 
 
 

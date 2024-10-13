@@ -1,10 +1,11 @@
 "use client"
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import AnimatedCircleButton from './AnimatedCircleButton';
 import Image from 'next/image';
+import NavbarCTAButton from './NavbarCTAButton';
+import { useScrollColorChange } from './useScrollColorChange';
 
 interface NavItem {
   href: string;
@@ -13,8 +14,7 @@ interface NavItem {
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [bgColor, setBgColor] = useState('transparent');
-  const [textColor, setTextColor] = useState('white');
+  const { bgColor, textColor } = useScrollColorChange();
 
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -29,24 +29,13 @@ const NavBar = () => {
     menuItemsRef.current[index] = el;
   }, []);
 
-  useEffect(() => {
-    const changeColor = () => {
-      if (window.scrollY >= 90) {
-        setBgColor('#fff');
-        setTextColor('#000');
-      } else {
-        setBgColor('transparent');
-        setTextColor('#fff');
-      }
-    };
-    window.addEventListener('scroll', changeColor);
-    return () => window.removeEventListener('scroll', changeColor);
-  }, []);
-
-  const navItems: NavItem[] = [
+  const navItems = useMemo<NavItem[]>(() => [
     { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
+    { href: '/about', label: 'About Us' },
+    // { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact Us' },
-  ];
+  ], []);
 
   useEffect(() => {
     if (isMenuOpen && menuItemsRef.current[0]) {
@@ -86,30 +75,34 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="fixed left-0 top-0 w-full z-50 transition-colors duration-300" aria-label="Main navigation">
-        <nav style={{ backgroundColor: bgColor }} className=" p-4 sm:p-6 lg:p-8">
-          <div className="flex justify-between items-center gap-x-8 h-16">
-            <button
-              ref={menuButtonRef}
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 sm:p-3 md:p-4 rounded-full z-50 text-navy hover:text-navy border border-beige hover:rounded-full hover:outline-orange focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-expanded={isMenuOpen}
+      <header className={`fixed  left-0 top-0 w-full z-50   transition-colors duration-300 ${bgColor}`} aria-label="Main navigation">
+        <nav className="p-2 sm:p-4 lg:p-6 max-w-screen-xl mx-auto" >
+          <div className="flex justify-between items-center gap-x-8 h-10">
+            <div className='flex items-center space-x-14 flex-rows-2'>
+              <div className='flex items-center space-x-2'>
+                <button
+                  aria-labelledby="menu-label"
+                  ref={menuButtonRef}
+                  onClick={toggleMenu}
+                  className={`inline-flex items-center justify-center p-2 rounded-full z-50 hover:${textColor} text-navy border hover:rounded-full hover:outline-orange focus:ring-2 focus:ring-inset focus:ring-white`}
+                  aria-expanded={isMenuOpen}
               aria-controls="slide-out-menu"
               aria-label={isMenuOpen ? 'Close main menu' : 'Open main menu'}
-            >
+            > 
               {isMenuOpen ? (
-                <AiOutlineClose className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" aria-hidden="true" />
+                
+                <AiOutlineClose className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8" aria-hidden="true" /> 
               ) : (
-                <AiOutlineMenu className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10" aria-hidden="true" />
-              )}
+                    <AiOutlineMenu className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8" aria-hidden="true" />
+               )}
             </button>
-            {/* <Link 
-                href="/" 
-                className="flex-shrink-0 md:block hidden"
-              >
-              <Image width={60} height={50} src="/logo.png" alt="bihub technology logo"/>
-            </Link> */}
-            <AnimatedCircleButton onClick={() => {}} />
+              <label className='text-navy/60 text-sm' id='menu'>Menu</label>
+            </div>
+              
+            <span className='text-navy text-sm font-semibold'>Hello</span>
+              
+            </div>
+            <NavbarCTAButton />
           </div>
         </nav>
       </header>
@@ -127,8 +120,8 @@ const NavBar = () => {
         aria-hidden={!isMenuOpen}
       >
         <div className="h-full flex flex-col justify-between">
-          <div className="px-4 py-6 ">
-            <div className="flex items-center justify-between mb-8">
+          <div className="px-2 py-4 ">
+            <div className="flex items-center justify-between mb-6">
               <Link 
                 href="/" 
                 className="flex-shrink-0" 
@@ -136,7 +129,7 @@ const NavBar = () => {
                 ref={setMenuItemRef(0)}
                 tabIndex={isMenuOpen ? 0 : -1}
               >
-                <span className="text-2xl font-medium text-gray-900" id="menu-heading">
+                <span className="text-2xl font-medium text-gray-200" id="menu-heading">
                   <Image width={40} height={40} src="/logo1.png" alt="bihub technology logo"/>
                 </span>
               </Link>
@@ -175,6 +168,14 @@ const NavBar = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={toggleMenu} aria-hidden="true" />
       )}
+       {/* <svg className="absolute top-0 left-0 w-full h-full " xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0,0,0,0.05)" strokeWidth="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg> */}
     </>
   );
 };

@@ -1,5 +1,4 @@
 // File: src/app/page.tsx
-import NavBar from '@/components/Navbar'
 
 import HeroSection from '@/components/HeroSection'
 import ServicesSection from '@/components/ServicesSection'
@@ -11,9 +10,6 @@ import ServicesShowcase from '@/components/ServicesShowcase'
 
 export default function Home() {
   return (
-    <>
-        <NavBar />
-    
     <div className='flex flex-col'>
       {/* Skip to main content link */}
       <a href="#main-content" className="skip-to-main-content" tabIndex={-1}>Skip to main content</a>
@@ -37,6 +33,5 @@ export default function Home() {
         <AgencyFooter />
       </footer>
     </div>
-    </>
   )
 }

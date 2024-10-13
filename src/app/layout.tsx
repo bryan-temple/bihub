@@ -1,3 +1,11 @@
+
+import type { Metadata } from 'next'
+import localFont from 'next/font/local'
+import './globals.css'
+import AnimationWrapper from '../components/AnimationWrapper'
+import NavBar from '@/components/Navbar'
+import OutlinedText from '@/components/OutlinedText';
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -6,6 +14,7 @@ import NavBar from "@/components/Navbar";
 import OutlinedText from "@/components/OutlinedText";
 import Script from 'next/script'
 import Image from 'next/image';
+
 
 
 const founderGrotesk = localFont({

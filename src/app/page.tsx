@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
 import ServicesShowcase from '@/components/ServicesShowcase';
@@ -9,6 +11,7 @@ import { SEOHead, HomePageSchema } from '@/components/Seo';
 
 
 
+
 export const metadata = {
   title: ' BiHub Technology: Inclusive Digital Solutions for All ',
   description: 'BiHub Technology offers accessible and innovative web solutions for your digital presence. We specialize in user-centric digital products that prioritize accessibility and inclusivity.',
@@ -16,6 +19,19 @@ export const metadata = {
 
 export default function Home() {
   return (
+
+    <div className='flex flex-col'>
+      {/* Skip to main content link */}
+      <a href="#main-content" className="skip-to-main-content" tabIndex={-1}>Skip to main content</a>
+      <main id="main-content" className='flex-1'>
+        <HeroSection />
+        {/* <ServicesSection /> */}
+    <section>   
+          <CompanyIntro 
+            tagline="Our Mission"
+            description='BiHub Technology is dedicated to creating user-centric digital products that prioritize accessibility and inclusivity'
+            className="p-6 max-w-screen md:w-full z-0 bg-white-100 py-16 block"
+
     <>
       <SEOHead 
         title={metadata.title}
@@ -36,7 +52,8 @@ export default function Home() {
             subheading=""
             buttonLabel=""
             buttonLink=""
-            // subheading="Inclusive Digital Solutions for All"
+
+
 
           />
           
@@ -61,7 +78,13 @@ export default function Home() {
         </main>
         
         <AgencyFooter />
+
+      </footer>
+    </div>
+  )
+
       </div>
     </>
   );
+
 }

@@ -6,6 +6,7 @@ import NavBar from "@/components/Navbar";
 import OutlinedText from "@/components/OutlinedText";
 import Script from 'next/script'
 import Image from 'next/image';
+import { Analytics } from "@vercel/analytics/react"
 
 
 const founderGrotesk = localFont({

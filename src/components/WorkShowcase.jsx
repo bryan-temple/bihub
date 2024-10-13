@@ -1,5 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+
 
 const CaseStudyItem = ({ title, subtitle, imageUrl, className }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -15,7 +17,7 @@ const CaseStudyItem = ({ title, subtitle, imageUrl, className }) => {
       {!imageLoaded && (
         <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
       )}
-      <img 
+      <Image 
         src={imageUrl} 
         alt={title} 
         className={`w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110 group-focus-within:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -35,7 +37,7 @@ const WorkShowcase = () => {
       <header className="flex justify-between items-center mb-12">
         <div className="text-white text-2xl font-bold">BiHub</div>
         <div className="flex space-x-4">
-          <button className="bg-white text-purple-900 px-4 py-2 rounded transition-colors duration-300 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">Let's Talk</button>
+          <button className="bg-white text-purple-900 px-4 py-2 rounded transition-colors duration-300 hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">Let&apos;s Talk</button>
           <button className="text-white transition-colors duration-300 hover:text-purple-200 focus:outline-none focus:text-purple-200">☰</button>
         </div>
       </header>

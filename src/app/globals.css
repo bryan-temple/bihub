@@ -16,18 +16,22 @@
   }
 }
 .skip-to-main-content {
-  position: absolute;
-  top: -40px;
-  left: 0;
+  /* position: absolute; */
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: #000;
   color: #fff;
   padding: 8px;
   z-index: 100;
-  transition: top 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
 }
 
 .skip-to-main-content:focus {
-  top: 0;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 

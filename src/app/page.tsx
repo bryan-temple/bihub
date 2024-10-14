@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
 import ServicesShowcase from '@/components/ServicesShowcase';
-import TestimonialCarousel from '@/components/Testimonial';
+// import TestimonialCarousel from '@/components/Testimonial';
 import CompanyIntro from '@/components/RichText';
 import { SEOHead, HomePageSchema } from '@/components/Seo';
 import { Metadata } from 'next';
@@ -33,7 +33,7 @@ export default function Home() {
           
           <section >
             <CompanyIntro 
-              tagline=" "
+              tagline="Brand Mission "
               description="BiHub Technology is dedicated to creating user-centric digital products that prioritize accessibility and inclusivity"
               className="p-6 max-w-screen-xl mx-auto  "
             />
@@ -45,10 +45,10 @@ export default function Home() {
           </section>
           
           
-          <section aria-labelledby="client-testimonials">
+          {/* <section aria-labelledby="client-testimonials">
             <h2 id="client-testimonials" className="sr-only">Client Testimonials</h2>
             <TestimonialCarousel />
-          </section>
+          </section> */}
         </main>
       </div>
     </>

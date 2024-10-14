@@ -50,7 +50,7 @@ const TestimonialCarousel = () => {
   }, []);
 
   return (
-    <div className=" max-w-screen-xl mx-auto p-8 px-4 py-6 bg-white">
+    <div className="w-full max-w-screen-xl mx-auto p-8 px-4 py-6 bg-white">
       <div className="relative overflow-hidden w-full bg-white rounded-xl shadow-lg">
         <div className="flex flex-col md:flex-row items-center justify-between p-8 md:p-12 lg:p-16">
       <h2 className="text-3xl md:text-4xl font-thin text-center mb-12 text-navy">What Our Clients Say</h2>

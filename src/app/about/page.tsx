@@ -68,7 +68,7 @@ export default function AboutPage() {
           </p>
           <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
           <p className="mb-6">
-            Our mission is to create innovative solutions that improve people's lives and contribute to a sustainable future.
+            Our mission is to create innovative solutions that improve people&apos;s lives and contribute to a sustainable future.
           </p>
         </div>
       </motion.section>

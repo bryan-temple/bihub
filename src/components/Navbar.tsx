@@ -77,6 +77,7 @@ const NavBar = () => {
     <>
       <header className={`fixed  left-0 top-0 w-full z-50   transition-colors duration-300 ${bgColor}`} aria-label="Main navigation">
         <nav className="p-2 sm:p-4 lg:p-6 max-w-screen-xl mx-auto" >
+          
           <div className="flex justify-between items-center gap-x-8 h-10">
             <div className='flex items-center space-x-14 flex-rows-2'>
               <div className='flex items-center space-x-2'>

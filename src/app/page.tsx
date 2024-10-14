@@ -3,8 +3,8 @@ import HeroSection from '@/components/HeroSection';
 import ServicesShowcase from '@/components/ServicesShowcase';
 import TestimonialCarousel from '@/components/Testimonial';
 import CompanyIntro from '@/components/RichText';
-import AgencyFooter from '@/components/AgencyFooter';
 import { SEOHead, HomePageSchema } from '@/components/Seo';
+
 
 
 
@@ -29,7 +29,7 @@ export default function Home() {
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-navy">
           Skip to main content
         </a>
-        <main id="main-content" className='flex-1'>
+        <main id="main-content" className='flex-1 mt-10 sm:mt-9 pt-2'>
           <HeroSection 
             image="/developer-image.jpg"
             heading="We launch visionary brands and build exceptional digital experiences"
@@ -59,8 +59,6 @@ export default function Home() {
             <TestimonialCarousel />
           </section>
         </main>
-        
-        <AgencyFooter />
       </div>
     </>
   );

@@ -42,7 +42,7 @@ export default function AboutPage() {
           priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-30" />
-        <h1 className="relative z-10 text-orange text-6xl font-bold">
+        <h1 className="relative z-10 text-orange text-6xl font-medium">
           About Us
         </h1>
       </section>

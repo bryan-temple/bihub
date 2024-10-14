@@ -50,10 +50,11 @@ const TestimonialCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-8xl mx-auto p-8 px-4 py-16 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-navy">What Our Clients Say</h2>
-      <div className="relative overflow-hidden bg-white rounded-3xl shadow-lg">
+    <div className=" max-w-screen-xl mx-auto p-8 px-4 py-6 bg-white">
+      <div className="relative overflow-hidden w-full bg-white rounded-xl shadow-lg">
         <div className="flex flex-col md:flex-row items-center justify-between p-8 md:p-12 lg:p-16">
+      <h2 className="text-3xl md:text-4xl font-thin text-center mb-12 text-navy">What Our Clients Say</h2>
+
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -81,7 +82,7 @@ const TestimonialCarousel = () => {
             <div className="flex space-x-4 mb-6">
               <button
                 onClick={prevTestimonial}
-                className="bg-white rounded-full p-3 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f0ad4e] transition-colors duration-200"
+                className="bg-white rounded-lg p-2 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f0ad4e] transition-colors duration-200"
                 aria-label="Previous testimonial"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -90,7 +91,7 @@ const TestimonialCarousel = () => {
               </button>
               <button
                 onClick={nextTestimonial}
-                className="bg-white rounded-full p-3 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f0ad4e] transition-colors duration-200"
+                className="bg-white rounded-lg p-2 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#f0ad4e] transition-colors duration-200"
                 aria-label="Next testimonial"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

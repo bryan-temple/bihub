@@ -4,25 +4,16 @@ import ServicesShowcase from '@/components/ServicesShowcase';
 import TestimonialCarousel from '@/components/Testimonial';
 import CompanyIntro from '@/components/RichText';
 import { SEOHead, HomePageSchema } from '@/components/Seo';
+import { Metadata } from 'next';
 
-
-
-
-
-export const metadata = {
-  title: ' BiHub Technology: Inclusive Digital Solutions for All ',
+export const metadata: Metadata = {
+  title: 'BiHub Technology: Inclusive Digital Solutions for All',
   description: 'BiHub Technology offers accessible and innovative web solutions for your digital presence. We specialize in user-centric digital products that prioritize accessibility and inclusivity.',
 };
 
 export default function Home() {
   return (
     <>
-      <SEOHead 
-        title={metadata.title}
-        description={metadata.description}
-        canonicalUrl="https://www.bihub.tech"
-        ogImage="https://www.bihub.tech/og-image.jpg"
-      />
       <HomePageSchema />
       
       <div className='flex flex-col min-h-screen bg-[#eec9b6]'>

@@ -97,14 +97,14 @@ export default function ContactPage() {
         animate={{ opacity: scrollY > 100 ? 1 : 0 }}
         transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto p-4">
           <motion.h2 
             className="text-4xl md:text-6xl font-light mb-12 text-center text-navy"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Let&apos;s Create Something Extraordinary
+            Let&apos;s create extraordinary experience
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-12 gap-y-12">
             <motion.div
@@ -112,7 +112,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-3xl font-light mb-8 text-navy">Get in Touch</h3>
+              <h3 className="text-3xl font-light mb-8 text-navy">Hey there! We&apos;re here to answer any questions you have - about Bihub&apos;s services and beyond. Fill out the form and you&apos;ll receive an email from our team within two business days or less.</h3>
               <form className="space-y-6" onSubmit={handleSubmit}>
 
               <div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                       cy="90"
                       r="85"
                       fill="none"
-                      stroke="#D67530"
+                      stroke="#0F2B42"
                       strokeWidth="2"
                       strokeDasharray="0.3,8"
                       strokeLinecap="round"
@@ -148,12 +148,12 @@ export default function ContactPage() {
                     />
                   </svg>
                   <motion.button
-                    className="bg-[#D67530] text-white font-medium w-40 h-40 rounded-full flex items-center justify-center relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+                    className="bg-navy text-white font-medium w-40 h-40 rounded-full flex items-center justify-center relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Send message"
                   >
-                    <span className="text-[14px] uppercase relative z-10 px-4 py-2">Send Message</span>
+                    <span className="text-[16px] uppercase relative z-10 px-4 py-2">Send Message</span>
                   </motion.button>
                 </button>
               </form>
